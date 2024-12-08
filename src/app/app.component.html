@@ -1,0 +1,17 @@
+<p-toolbar class="links" styleClass="mb-4" *ngIf="showNavigate">
+    <ng-template pTemplate="right"  *ngIf="isAdmin">
+        <a  routerLink="presentsList"  icon="pi pi-gift" class="color">Presents</a>
+        <a routerLink="donorsList"  class="color">Donors</a>
+        <a  routerLink="presentsPurchase"  class="color">Purchase</a>
+        <a  routerLink="cart"  class="color">Cart</a>
+        <a  routerLink="random" class="color">Lottery</a>
+        <a  routerLink="users"  class="color">Users</a>
+        <a  routerLink="report"  class="color">Report</a>
+    </ng-template>
+    <ng-template pTemplate="right"  *ngIf="!isAdmin">
+        <a  routerLink="register"  class="color">Register</a>
+        <a  routerLink="presentsPurchase"  class="color">Purchase</a>
+        <a  routerLink="cart"  class="color">Cart</a>
+    </ng-template>
+    </p-toolbar>
+    <router-outlet></router-outlet>

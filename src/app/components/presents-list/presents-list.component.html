@@ -1,0 +1,89 @@
+
+    <p-toolbar styleClass="mb-4">
+        <ng-template pTemplate="left">
+            <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2"
+            (click)="addPresent()" ></button>
+            <button pButton pRipple  icon="pi pi-trash" class="p-button-warning"
+            (click)="deleteSelectedPresents()" [disabled]="!selectedPresents || !selectedPresents.length"></button>
+        </ng-template>
+        <ng-template pTemplate="right">
+            <span class="p-buttonset">
+                <!-- <button pButton pRipple label="Export" icon="pi pi-upload"></button> -->
+                <button pButton pRipple label="Sort-Purchased " icon="pi pi-exclamation-circle" class="p-button-warning" (click)="sortPurchased()"></button>
+                <button pButton pRipple label="Sort-Price" icon="pi pi-dollar" class="p-button-warning" (click)="sortPrice()"></button>
+                
+            </span>   
+       </ng-template>
+    </p-toolbar>
+    <div class="my-css" >
+        <p-table #dt  [value] = "presentsList" [rows]="3" [paginator]="true"  [tableStyle]="{'min-width': '50rem'}"
+        [globalFilterFields]="['name','category','donorId','price','representative.name']" [(selection)]="selectedPresents"
+        [rowHover]="true" dataKey="id" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" 
+        [showCurrentPageReport]="true" >
+        <ng-template pTemplate="caption">
+            <div class="flex align-items-center justify-content-between">
+                <h5 class="m-0">Manage Presents</h5>
+                <span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text"
+                        placeholder="Search..." (input)="dt.filterGlobal( $event.target.value, 'contains')"/>
+                </span>
+            </div>
+        </ng-template >
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width: 3rem">
+                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                </th>
+                <th pSortableColumn="id">Id<p-sortIcon field="id"></p-sortIcon></th>
+                <th pSortableColumn="name">Name<p-sortIcon field="name"></p-sortIcon></th>
+                <th pSortableColumn="donorId">Donor<p-sortIcon field="donorId"></p-sortIcon></th>
+                <th pSortableColumn="price">Price<p-sortIcon field="price"></p-sortIcon></th>
+                <th pSortableColumn="category">Cateory<p-sortIcon field="category"></p-sortIcon></th>
+                <th pSortableColumn="picture">Picture<p-sortIcon field="picture"></p-sortIcon></th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-item  >
+                <tr>
+                    <td>
+                        <p-tableCheckbox [value]="item"></p-tableCheckbox>
+                    </td>
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.donorId}}</td>
+                    <td>{{item.price}}</td>
+                    <td>{{item.category}}</td>
+                    <td><img [src]="'/assets/images/' + item.picture"></td>
+                    <td>
+                        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
+                        (click)="savePresent(item.id)"></button>
+                        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
+                        (click)="delete(item)"></button>
+                        <button pButton pRipple icon="pi pi-exclamation-circle" class="p-button-rounded p-button-success"
+                        (click)="showInfo(item)"></button>
+                    </td>
+                </tr>
+          
+        </ng-template>
+        <ng-template pTemplate="summary">
+            <div class="flex align-items-center justify-content-between">
+                In total there are {{ presentsList ? presentsList.length : 0 }} products.
+            </div>
+        </ng-template>
+        </p-table>
+        <br>
+        <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog> 
+        <router-outlet></router-outlet>
+    </div>
+
+   
+<p-dialog (onHide)="closeDialoge()" [style]="{width: '450px'}" header="Present info" [modal]="true"  [(visible)]="info"
+styleClass="p-fluid">
+<span icon="pi pi-verified">info - {{num}} users  choose this present </span>
+    <div>
+    <p-button  severity="warning" label="ok" [style]="{width:'106px'}" [text]="true" [raised]="true"  icon="pi pi-times" (click)="closeDialoge()"></p-button>
+   </div>
+</p-dialog>
+
+

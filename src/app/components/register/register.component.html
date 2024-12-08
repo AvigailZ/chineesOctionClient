@@ -1,0 +1,58 @@
+<div dir="ltr" styleClass="p-fluid" [style]="{width: '450px',marginLeft:'750px'}">
+
+    <form  [formGroup]="frmRegister">
+        <div  class="p-inputgroup">
+            <span class="p-inputgroup-addon">
+                <i class="pi pi-user-edit"></i>
+            </span>
+            <input pInputText id="name" formControlName="name" placeholder="Name" />
+        </div>
+        <small class="p-error" *ngIf="frmRegister.controls['name'].errors && frmRegister.controls['name'].errors['required']">Name is required.</small>
+        <br>
+        <div  class="p-inputgroup">
+            <span class="p-inputgroup-addon">
+                <i class="pi pi-user"></i>
+            </span>
+            <input pInputText id="userName" formControlName="userName" placeholder="Username" />  
+        </div>
+        <small class="p-error" *ngIf="frmRegister.controls['userName'].errors && frmRegister.controls['userName'].errors['required']">userName is required.</small>
+        <br>
+        <div  class="p-inputgroup">
+            <span class="p-inputgroup-addon">
+               <i class="pi pi-eye-slash"></i>
+           </span>
+           <input type="password" pInputText id="password" formControlName="password" placeholder="Passwod" />
+       </div>
+       <small class="p-error" *ngIf="frmRegister.controls['password'].errors && frmRegister.controls['password'].errors['required']">Password is required.</small>
+        <br>
+        <div  class="p-inputgroup">
+            <span class="p-inputgroup-addon">
+               <i class="pi pi-phone"></i>
+           </span>
+           <input formControlName="phonNumber" id="phonNumber" pInputText placeholder="PhonNumber" pKeyFilter="int"/>
+       </div>
+       <small class="p-error" *ngIf="frmRegister.controls['phonNumber'].errors && frmRegister.controls['phonNumber'].errors['required']">PhonNumber is required.</small>
+        <!-- <small class="p-error" *ngIf="!frmRegister.get('phonNumber').valid && frmRegister.get('phonNumber').dirty">PhonNumber is invalid.</small>  -->
+        <br>
+        <div  class="p-inputgroup">
+            <span class="p-inputgroup-addon">
+                <i class="pi pi-at"></i>
+            </span>
+            <input formControlName="email" id="email" pInputText placeholder="Email" />
+        </div>
+        <small class="p-error" *ngIf="frmRegister.controls['email'].errors && frmRegister.controls['email'].errors['required']">email is required.</small>
+        <small class="p-error" *ngIf="frmRegister.controls['email'].errors && frmRegister.controls['email'].errors['email']">email is invalid.</small>
+        <br>
+        <div  class="p-inputgroup">
+            <span class="p-inputgroup-addon">
+                <i class="pi pi-home"></i>
+            </span>
+            <input formControlName="address" id="address" pInputText placeholder="Address" />
+        </div>
+        <br>
+        <div  class="p-inputgroup"  >
+            <p-button [style]="{left:'180px'}" severity="warning" label="Register" [text]="true" [raised]="true"  (click)="register()"></p-button>
+        </div>
+    </form>
+    </div>
+    

@@ -1,0 +1,26 @@
+<button pButton pRipple title="for paying" icon="pi pi-credit-card" class="p-button-success mr-2" (click)="paying()"></button>
+<button pButton pRipple title="delete" icon="pi pi-trash" class="p-button-success mr-2" (click)="deleteAll()"></button>
+<button pButton pRipple title="back to presents purchase" icon="pi pi-backward" class="p-button-success mr-2" (click)="back()"></button>
+<p-card header="{{product.present.name}}" *ngFor="let product of presentsInCart" >
+    <div class="col-12">
+        <div class="flex flex-column xl:flex-row xl:align-items-start p-4 gap-4">
+            <img class="w-9 sm:w-16rem xl:w-10rem shadow-2 block xl:block mx-auto border-round" [src]="'/assets/images/' + product.present.picture" />
+            <div class="flex flex-column sm:flex-row justify-content-between align-items-center xl:align-items-start flex-1 gap-4">
+                <div class="flex flex-column align-items-center sm:align-items-start gap-3">
+                    <div class="flex align-items-center gap-3">
+
+                    </div>
+                </div>
+                <div class="flex sm:flex-column align-items-center sm:align-items-end gap-3 sm:gap-2">
+                    <span class="text-2xl font-semibold">{{ '$' + product.present.price }}</span>
+                    <span class="font-semibold">Quantity:{{product.quantity}}</span>
+                    <button pButton pRipple label="Delete" icon="pi pi-minus" class="p-button-success " (click)="DeleteFromoCart(product)"></button>
+                    <button pButton pRipple label=" Add " icon="pi pi-plus" class="p-button-success" (click)="AddToCart(product)"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</p-card>
+<h1 *ngIf="presentsInCart.length==0">There is no presents in your cart, please return back↩</h1>
+
+<app-payment [(isDialog)]="isDialog"></app-payment>

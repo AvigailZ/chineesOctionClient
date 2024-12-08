@@ -1,0 +1,56 @@
+<p-toolbar styleClass="mb-4">
+    <ng-template pTemplate="left">
+        <button pButton pRipple label="Sum Of Cart" icon="pi pi-inbox" class="p-button-success mr-2"
+        (click)="getSumOfCart()" ></button>
+    </ng-template>
+</p-toolbar>
+
+<div class="my-css" >
+    <p-table #dt  [value] = "usersList" [rows]="5" [paginator]="true"
+    [globalFilterFields]="['name','phonNumber','email','address','representative.name']" 
+    [rowHover]="true" dataKey="id" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" 
+    [showCurrentPageReport]="true" >
+    <ng-template pTemplate="caption">
+        <div class="flex align-items-center justify-content-between">
+            <h5 class="m-0">Manage Users</h5>
+            <span class="p-input-icon-left">
+                <i class="pi pi-search"></i>
+                <input pInputText type="text"
+                    placeholder="Search..." (input)="dt.filterGlobal( $event.target.value, 'contains')"/>
+            </span>
+        </div>
+    </ng-template >
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="name">First Name<p-sortIcon field="name"></p-sortIcon></th>
+            <th pSortableColumn="phonNumber">Last Name<p-sortIcon field="phonNumber"></p-sortIcon></th>
+            <th pSortableColumn="email">Address<p-sortIcon field="email"></p-sortIcon></th>
+            <th pSortableColumn="address">Email<p-sortIcon field="address"></p-sortIcon></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-item >
+            <tr   >
+                <td>{{item.name}}</td>
+                <td>{{item.phonNumber}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.address}}</td>
+            </tr>
+      
+    </ng-template>
+    <ng-template pTemplate="summary">
+        <div class="flex align-items-center justify-content-between">
+            In total there are {{ usersList ? usersList.length : 0 }} users.
+        </div>
+    </ng-template>
+    </p-table>
+    <br>
+    <router-outlet></router-outlet>
+</div>
+
+<p-dialog (onHide)="closeDialoge()" [style]="{width: '450px'}" header="ChineesOction insertions" [modal]="true"  [(visible)]="info"
+styleClass="p-fluid">
+<span icon="pi pi-verified">info - {{sum}}$ is ChineesOction insertions </span>
+    <div>
+    <p-button  severity="warning" label="ok" [style]="{width:'106px'}" [text]="true" [raised]="true"  icon="pi pi-times" (click)="closeDialoge()"></p-button>
+   </div>
+</p-dialog>

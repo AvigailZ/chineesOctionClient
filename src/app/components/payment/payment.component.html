@@ -1,0 +1,60 @@
+<p-dialog  *ngIf="finish==false" dir="ltr" [(visible)]="isDialog" (onHide)="close()" styleClass="p-fluid" [style]="{width: '450px'}" header="Payment" [modal]="true">
+    <ng-template  pTemplate="content" [formGroup]="frmPayment">
+        <h2>Your total sum is: {{payment}}$</h2>
+    
+        <div><span [style]="{fontWeight:'bold'}">Card Deatails</span></div>
+        <div  class="p-inputgroup">
+            <span class="p-inputgroup-addon">
+                <i class="pi pi-credit-card"></i>
+            </span>
+            <input formControlName="cardNumber" id="cardNumber" pInputText placeholder="Card Number" />
+        </div>
+        <small class="p-error" *ngIf="frmPayment.controls['cardNumber'].errors && frmPayment.controls['cardNumber'].errors['required']">CardNumber is required.</small>
+        <small class="p-error" *ngIf="frmPayment.controls['cardNumber'].errors && frmPayment.controls['cardNumber'].errors['maxlength']">CardNumber nus be 16 characters.</small>
+        <small class="p-error" *ngIf="frmPayment.controls['cardNumber'].errors && frmPayment.controls['cardNumber'].errors['minlength']">CardNumber nus be 16 characters.</small>
+        <div  class="p-inputgroup">
+            <span class="p-inputgroup-addon">
+                <i class="pi pi-calendar"></i>
+            </span>
+            <p-calendar formControlName="validity" view="month" dateFormat="mm/yy" ></p-calendar>
+        </div>
+        <small class="p-error" *ngIf="frmPayment.controls['validity'].errors && frmPayment.controls['validity'].errors['required']">Validity is required.</small>
+        <div  class="p-inputgroup">
+            <span class="p-inputgroup-addon">
+                <i class="pi pi-ellipsis-h"></i>
+            </span>
+            <input formControlName="cvc" pInputText placeholder="cvc" pKeyFilter="int"/>
+        </div>
+        <small class="p-error" *ngIf="frmPayment.controls['cvc'].errors && frmPayment.controls['cvc'].errors['required']">cvs is required.</small>
+        <small class="p-error" *ngIf="frmPayment.controls['cvc'].errors && frmPayment.controls['cvc'].errors['maxlength']">cvs must be 3 nums.</small>
+        <small class="p-error" *ngIf="frmPayment.controls['cvc'].errors && frmPayment.controls['cvc'].errors['minlength']">cvs must be 3 nums.</small>
+        <div  class="p-inputgroup">
+            <span class="p-inputgroup-addon">
+                <i class="pi pi-user-edit"></i>
+            </span>
+            <input formControlName="identity" pInputText placeholder="Owner's Card Identity" pKeyFilter="int"/>
+        </div>
+        <small class="p-error" *ngIf="frmPayment.controls['identity'].errors && frmPayment.controls['identity'].errors['required']">identity is required.</small>
+        <small class="p-error" *ngIf="frmPayment.controls['identity'].errors && frmPayment.controls['identity'].errors['maxlength']">identity must be 9 nums.</small>
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <p-button [disabled]="frmPayment.invalid" severity="warning" label="Payment" [text]="true" [raised]="true"  icon="pi pi-check" (click)="sendOrder()"></p-button>
+        <p-button  severity="warning" label="Cancel" [text]="true" [raised]="true"  icon="pi pi-times" (click)="close()"></p-button>
+    </ng-template>
+</p-dialog>
+
+
+<p-dialog   dir="ltr" [(visible)]="finish" (onHide)="close()" styleClass="p-fluid" [style]="{width: '450px'}" header="Payment" [modal]="true">
+   <div *ngIf="!orderFinish">
+    <i class="pi pi-spin pi-spinner" style="font-size: 2rem"></i>
+    <span>Cheching your detailes, please wait!</span>
+   </div>
+   <div *ngIf="orderFinish">
+    <span icon="pi pi-verified">Your order created succfully</span>
+    <div>
+    <p-button  severity="warning" label="ok" [style]="{width:'106px'}" [text]="true" [raised]="true"  icon="pi pi-times" (click)="closeOrder()"></p-button>
+   </div>
+</div>
+</p-dialog>
+
+

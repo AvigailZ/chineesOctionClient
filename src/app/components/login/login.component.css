@@ -1,0 +1,37 @@
+div{
+    padding: 10px;
+
+}
+
+.p-error {
+    color: orange;
+}
+.p-inputtext.ng-dirty.ng-invalid {
+    border-color: orange;
+}
+p-inputnumber.ng-dirty.ng-invalid > .p-inputnumber > .p-inputtext {
+    border-color: orange;
+}
+.dis{
+opacity: initial;
+
+}
+
+
+@media screen and (min-width: 992px){
+.lg\:w-6 {
+    width: 31% !important;
+}
+}
+
+
+.text-center {
+    text-align: center!important;
+}
+input:enabled:hover{
+   border-color: #22C55E;
+}
+input:enabled:focus{
+   border-color: #22C55E;
+   box-shadow: 0 0 0 0.1rem #91f5b6;
+}

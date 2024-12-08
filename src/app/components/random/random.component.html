@@ -1,0 +1,30 @@
+
+<p-card header="{{product.id}} - {{product.name}}" *ngFor="let product of presentsList" >
+    <div class="col-12">
+        <div class="flex flex-column xl:flex-row xl:align-items-start p-4 gap-4">
+            <img class="w-9 sm:w-16rem xl:w-10rem shadow-2 block xl:block mx-auto border-round" [src]="'/assets/images/' + product.picture" />
+            <div class="flex flex-column sm:flex-row justify-content-between align-items-center xl:align-items-start flex-1 gap-4">
+                <div class="flex flex-column align-items-center sm:align-items-start gap-3">
+                    <div class="flex align-items-center gap-3">
+                    </div>
+                </div>
+                <div class="flex sm:flex-column align-items-center sm:align-items-end gap-3 sm:gap-2">
+                    <button pButton pRipple label="  Lottery " icon="pi pi-flag-fill" class="p-button-success mr-2" (click)="getWinner(product)"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</p-card>
+<button pButton pRipple label="Get report" icon="pi pi-flag-fill" class="p-button-success mr-2" (click)="getReport()"></button>
+
+
+<p-dialog (onHide)="closeDialoge()" [style]="{width: '450px'}" header="The Winner" [modal]="true"  [(visible)]="info"
+styleClass="p-fluid">
+<span icon="pi pi-verified">info - {{user}} is the winner </span>
+    <div>
+    <p-button  severity="warning" label="ok" [style]="{width:'106px'}" [text]="true" [raised]="true"  icon="pi pi-times" (click)="closeDialoge()"></p-button>
+   </div>
+</p-dialog>
+
+
+

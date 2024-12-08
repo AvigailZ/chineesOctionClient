@@ -1,0 +1,106 @@
+/* You can add global styles to this file, and also import other style files */
+
+body{
+   direction:ltr;
+   padding: 50px;
+   font-family: var(--font-family);
+   font-size: medium;
+   text-align: left;
+} 
+
+input{
+   text-align: left;
+}
+
+.p-datatable .p-datatable-thead > tr > th {
+   text-align: center  !important;
+}
+
+.p-selectbutton .p-button.p-highlight{
+   background-color:orange;
+   border-color: orange;
+}
+.surface-border {
+   border-color: green;
+}
+.surface-card{
+   background-color: green;
+}
+.p-inputgroup .p-inputtext, .p-fluid .p-inputgroup .p-inputtext{
+   width: 146%;
+}
+
+
+
+/* .p-inputgroup-addon:last-child, .p-inputgroup button:last-child, .p-inputgroup input:last-child, .p-inputgroup > .p-inputwrapper:last-child > .p-component, .p-inputgroup > .p-inputwrapper:last-child > .p-component > .p-inputtext {
+   border-top-right-radius: 1px;
+   border-bottom-right-radius: 1px;
+}
+.p-inputgroup-addon:first-child, .p-inputgroup button:first-child, .p-inputgroup input:first-child, .p-inputgroup > .p-inputwrapper:first-child > .p-component, .p-inputgroup > .p-inputwrapper:first-child > .p-component > .p-inputtext {
+   border-top-left-radius: 1px;
+   border-bottom-left-radius: 1px;
+} */
+
+
+/* .p-inputgroup-addon:first-child, .p-inputgroup button:first-child, .p-inputgroup input:first-child, .p-inputgroup > .p-inputwrapper:first-child > .p-component, .p-inputgroup > .p-inputwrapper:first-child > .p-component > .p-inputtext {
+   border-top-left-radius: 1px;
+   border-bottom-left-radius: 1px;
+   border-bottom-right-radius: 1px;
+   border-top-right-radius: 1px;
+} */
+
+element.style {
+}
+/* .p-inputgroup .p-inputtext, .p-fluid .p-inputgroup .p-inputtext {
+    width: 146%;
+}
+.p-inputgroup-addon:first-child, .p-inputgroup button:first-child, .p-inputgroup input:first-child, .p-inputgroup > .p-inputwrapper:first-child > .p-component, .p-inputgroup > .p-inputwrapper:first-child > .p-component > .p-inputtext {
+    border-top-left-radius: 1px;
+    border-bottom-left-radius: 1px;
+    border-bottom-right-radius: 1px;
+    border-top-right-radius: 1px;
+} */
+/* .p-inputgroup-addon:first-child, .p-inputgroup button:first-child, .p-inputgroup input:first-child, .p-inputgroup > .p-inputwrapper:first-child > .p-component, .p-inputgroup > .p-inputwrapper:first-child > .p-component > .p-inputtext {
+    border-top-left-radius: 1px;
+    border-bottom-left-radius: 1px;
+}
+.p-inputgroup-addon:last-child, .p-inputgroup button:last-child, .p-inputgroup input:last-child, .p-inputgroup > .p-inputwrapper:last-child > .p-component, .p-inputgroup > .p-inputwrapper:last-child > .p-component > .p-inputtext {
+    border-top-right-radius: 1px;
+    border-bottom-right-radius: 1px;
+} */
+input {
+    text-align: left;
+}
+p-inputmask.ng-dirty.ng-invalid > .p-inputtext{
+   border-color: orange;
+}
+p-calendar.ng-dirty.ng-invalid > .p-calendar > .p-inputtext {
+   border-color: orange;
+}
+.w-9 {
+   width: 250px !important;
+   height: 180px !important;
+}
+img {
+   width: 170px !important;
+   height: 124px !important;
+}
+.p-card .p-card-body{
+   margin: 15px;
+   height: 350px;
+}
+
+.p-card {
+   width: 700px;
+   margin-left: 500px;
+}
+.p-fluid .p-calendar .p-inputtext {
+   width: 1%;
+   border-top-left-radius: 1px;
+   border-bottom-left-radius: 1px;
+}
+.p-component[_ngcontent-ng-c2703602003], .p-component[_ngcontent-ng-c2703602003] *[_ngcontent-ng-c2703602003] {
+   box-sizing: border-box;
+   justify-content: flex-end;
+   direction: ltr;
+}

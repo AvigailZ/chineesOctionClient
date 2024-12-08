@@ -1,0 +1,43 @@
+<!-- 
+<div class="surface-card p-4 shadow-2 border-round w-full lg:w-6"  [formGroup]="frmLogin" [style]="{marginLeft:'630px'}">
+    <div class="text-center mb-5">
+        <img src="https://blocks.primeng.org/assets/images/blocks/logos/hyper.svg" alt="Image" height="50" class="mb-3">
+        <div class="text-900 text-3xl font-medium mb-3">Welcome Back</div>
+        <span class="text-600 font-medium line-height-3">Don't have an account?</span>
+        <a href="register" class="font-medium no-underline ml-2 text-green-500 cursor-pointer"> Create today</a>
+    </div>
+    <div>
+        <label for="userName" class="block text-900 font-medium mb-2">UseName</label>
+        <input id="userName" formControlName="userName" type="text" placeholder="userName" pInputText class="w-full mb-3">
+
+        <label for="password" class="block text-900 font-medium mb-2">Password</label>
+        <input id="password" type="password" formControlName="password" placeholder="Password" pInputText class="w-full mb-3">
+        <div></div>
+        <button pButton pRipple label="Sign In" class="p-button-success w-full" icon="pi pi-user"  (click)="login()"></button>
+    </div>
+</div> -->
+
+
+
+
+<div dir="ltr" styleClass="p-fluid" [style]="{width: '450px',marginLeft:'650px'}">
+<form  [formGroup]="frmLogin">
+    <div  class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+            <i class="pi pi-at"></i>
+        </span>
+        <input pInputText id="email" formControlName="email" placeholder="Email" />
+    </div>
+    <div  class="p-inputgroup">
+         <span class="p-inputgroup-addon">
+            <i class="pi pi-eye-slash"></i>
+        </span>
+        <input type="password" pInputText id="password" formControlName="password" placeholder="Passwod" />
+    </div>
+
+<div  class="p-inputgroup">
+    <p-button [style]="{left:'130px'}" severity="warning" label="Login" [text]="true" [raised]="true"  (click)="login()"></p-button>
+    <p-button [style]="{left:'130px'}" severity="warning" label="Register" [text]="true" [raised]="true"  (click)="register()"></p-button>
+</div>
+</form>
+</div>
